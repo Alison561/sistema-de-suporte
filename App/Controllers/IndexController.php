@@ -53,8 +53,8 @@ class indexController{
     public function postChat(){
         $id = explode('/', $_GET['uri']);
         $this->render('suport', 'template');
-        return $this->suport->enviarMsg($id[0], $_POST['msg']);
-
+        $this->suport->enviarMsg($id[0], $_POST['msg']);
+            echo "<script>window.location.href = '".url."".$id[0]."'</script>";
     }
 
 

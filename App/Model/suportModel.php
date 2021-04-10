@@ -10,8 +10,14 @@ class suportModel{
     }
 
     public function selectId(){
-        $con = MySql::con()->prepare("SELECT * FROM `assunto` WHERE id = ? and resolvida = ''");
+        $con = MySql::con()->prepare("SELECT * FROM `assunto` WHERE id_user = ? and resolvida = ''");
         $con->execute(array($_SESSION['id'] ));
+        return $con->fetchall();
+    }
+
+    public function selectAss(){
+        $con = MySql::con()->prepare("SELECT * FROM `assunto` WHERE  resolvida = ''");
+        $con->execute();
         return $con->fetchall();
     }
 

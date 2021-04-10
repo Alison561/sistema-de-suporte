@@ -9,8 +9,13 @@ class adminController{
         $this->suport = new suportModel();
     }
 
+    public function selectAss(){
+        $id = explode('/', $_GET['uri']);
+        return $this->suport->selectAssId($id[1]);
+    }
+
     public function selectAssID(){
-        return $this->suport->selectId();
+        return $this->suport->selectAss();
     }
     // 
     // 
